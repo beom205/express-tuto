@@ -75,6 +75,12 @@ app.route('/book')
 // birds.js 사용
 app.use('/birds', birds);
 
+// res.render 사용($ npm install ejs)
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.get('/render', function (req, res) {
+    res.render('render.html')
+});
 
 // 3000포트 사용
 app.listen(3000, function(){
